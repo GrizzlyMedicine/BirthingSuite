@@ -1,0 +1,6 @@
+[Unit]
+Description=Checkpoint Mem0 key/value store
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -lc "TS=$(date +%%Y%%m%%d-%%H%%M%%S); mkdir -p /opt/core/mem0/archives; tar -C /opt/core/mem0 -czf /opt/core/mem0/archives/mem0-$TS.tgz store && sha256sum /opt/core/mem0/archives/mem0-$TS.tgz > /opt/core/mem0/archives/mem0-$TS.tgz.sha256"

@@ -1,0 +1,32 @@
+# Example initialization manifest for a digital person.  Copy this file to
+# /person/person.init.yaml inside your container and edit the fields.
+#
+# The `identity` section defines who the person is and provides search hints.
+# The `knowledge` section can restrict or augment discovery.
+# The `memory` section configures the persistence layer.
+# The `runtime` section defines the language model provider and parameters.
+# The `voice` section describes preferences for synthesized speech.
+
+identity:
+  name: "Jane Doe"
+  aliases: ["J.D."]
+  search_queries:
+    - "Jane Doe biography"
+    - "Jane Doe interview"
+knowledge:
+  allow_domains:
+    - "en.wikipedia.org"
+    - "biography.com"
+memory:
+  backend: "mem0-json-kv"
+  store_path: "/opt/core/mem0/store"
+runtime:
+  provider: "runtime"
+  model: "auto"
+voice:
+  mode: "discover"
+  policy:
+    constraints:
+      expressive_range: "medium"
+      warmth: "medium"
+      brightness: "medium"

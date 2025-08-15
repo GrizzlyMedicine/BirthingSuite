@@ -1,0 +1,11 @@
+[Unit]
+Description=BirthingSuite first boot initializer
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/core/bootstrap/firstboot.py
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

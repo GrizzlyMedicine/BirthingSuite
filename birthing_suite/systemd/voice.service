@@ -1,0 +1,10 @@
+[Unit]
+Description=BirthingSuite voice synthesis
+After=firstboot.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/core/voice/discover.py
+
+[Install]
+WantedBy=multi-user.target
